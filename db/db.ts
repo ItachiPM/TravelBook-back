@@ -9,6 +9,6 @@ export const postgreDataSource = {
   username: username,
   password: password,
   database: database,
-  entities: [],
+  entities: ['dist/**/**.entity{.ts,.js}'],
   synchronize: true,
 };
