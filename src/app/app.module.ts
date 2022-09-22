@@ -1,9 +1,11 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
+import { postgreDataSource } from '../../db/db';
 
 @Module({
-  imports: [],
+  imports: [TypeOrmModule.forRoot(postgreDataSource as TypeOrmModuleOptions)],
   controllers: [AppController],
   providers: [AppService],
 })
