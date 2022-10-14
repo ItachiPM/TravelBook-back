@@ -6,4 +6,5 @@ export const config = {
     password: 'password',
     database: 'database',
   },
+  salt: 'salt',
 };
