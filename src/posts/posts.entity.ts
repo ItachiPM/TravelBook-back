@@ -1,4 +1,5 @@
 import {
+  BaseEntity,
   Column,
   Entity,
   ManyToOne,
@@ -10,12 +11,12 @@ import { UsersEntity } from '../users/users.entity';
 import { Likes } from '../likes/likes.entity';
 
 @Entity()
-export class Posts extends PostEntityTypes {
+export class Posts extends BaseEntity implements PostEntityTypes {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @ManyToOne((type) => UsersEntity, (entity) => entity.posts)
-  userId: UsersEntity;
+  @ManyToOne(() => UsersEntity, (entity) => entity.posts)
+  user: UsersEntity;
 
   @Column({
     length: 20000,
@@ -43,6 +44,6 @@ export class Posts extends PostEntityTypes {
   @Column()
   isActive: boolean;
 
-  @OneToMany((types) => Likes, (entity) => entity.userId)
+  @OneToMany(() => Likes, (entity) => entity.user)
   likes: Likes[];
 }

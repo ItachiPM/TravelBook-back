@@ -3,7 +3,7 @@ import { Likes } from '../../src/likes/likes.entity';
 
 export class PostEntityTypes {
   id: string;
-  userId: UsersEntity;
+  user: UsersEntity;
   description: string;
   location: string;
   country: string;

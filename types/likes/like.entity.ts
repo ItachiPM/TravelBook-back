@@ -3,7 +3,7 @@ import { PostEntityTypes } from '../posts';
 
 export class LikeEntityTypes {
   id: string;
-  userId: UserEntityTypes;
-  postId: PostEntityTypes;
+  user: UserEntityTypes;
+  post: PostEntityTypes;
   isActive: boolean;
 }

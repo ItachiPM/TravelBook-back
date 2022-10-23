@@ -5,23 +5,30 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { LikeEntityTypes } from '../../types';
+import { CommentsEntityType } from '../../types/comments';
 import { UsersEntity } from '../users/users.entity';
 import { Posts } from '../posts/posts.entity';
 
 @Entity()
-export class Likes extends BaseEntity implements LikeEntityTypes {
+export class Comments extends BaseEntity implements CommentsEntityType {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @ManyToOne(() => UsersEntity, (entity) => entity.id)
-  user: UsersEntity;
+  @Column({
+    length: 20000,
+  })
+  content: string;
 
   @ManyToOne(() => Posts, (entity) => entity.id)
-  post: Posts;
+  post: string;
+
+  @ManyToOne(() => UsersEntity, (entity) => entity.id)
+  user: string;
 
   @Column({
-    default: false,
+    default: () => 'CURRENT_TIMESTAMP',
   })
+  createdAt: Date;
+
   isActive: boolean;
 }

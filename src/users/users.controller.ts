@@ -10,7 +10,7 @@ import {
 } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { EditUserDto } from './dto/editUser.dto';
-import { JsonResponse } from '../types/jsonResponse/jsonResponse';
+import { JsonResponse } from '../../types';
 
 @Controller('users')
 export class UsersController {

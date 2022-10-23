@@ -1,4 +1,4 @@
-import { JsonResponse } from '../types/jsonResponse/jsonResponse';
+import { JsonResponse } from '../../types';
 
 export const jsonResponse = ({ code, status, message, data }: JsonResponse) => {
   return {

@@ -3,11 +3,14 @@ import {
   Column,
   Entity,
   OneToMany,
+  OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { Role, UserEntityTypes } from '../../types';
 import { Posts } from '../posts/posts.entity';
 import { Likes } from '../likes/likes.entity';
+import { Comments } from '../comments/comments.entity';
+import { Friends } from '../friends/friends.entity';
 
 @Entity()
 export class UsersEntity extends BaseEntity implements UserEntityTypes {
@@ -56,9 +59,15 @@ export class UsersEntity extends BaseEntity implements UserEntityTypes {
   })
   isActive: boolean;
 
-  @OneToMany((types) => Posts, (entity) => entity.userId)
+  @OneToMany(() => Posts, (entity) => entity.user)
   posts: Posts[];
 
-  @OneToMany((types) => Likes, (entity) => entity.userId)
+  @OneToMany(() => Likes, (entity) => entity.user)
   likes: Likes[];
+
+  @OneToMany(() => Comments, (entity) => entity.user)
+  comments: Comments[];
+
+  @OneToOne(() => Friends, (entity) => entity.user)
+  friends: Friends;
 }

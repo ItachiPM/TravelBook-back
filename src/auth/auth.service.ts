@@ -8,10 +8,7 @@ import { sign } from 'jsonwebtoken';
 import { v4 as uuid } from 'uuid';
 import { config } from '../../config/config';
 import { jsonResponse } from '../utils/jsonResponse';
-import {
-  JsonResponse,
-  JsonResponseStatus,
-} from '../types/jsonResponse/jsonResponse';
+import { JsonResponse, JsonResponseStatus } from '../../types';
 import { NewUserDto } from './dto/newUser.dto';
 import { Role } from '../../types';
 import { MailService } from '../mail/mail.service';

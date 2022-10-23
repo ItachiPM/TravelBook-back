@@ -6,7 +6,7 @@ import {
   HttpStatus,
 } from '@nestjs/common';
 import { Response } from 'express';
-import { JsonResponseStatus } from '../types/jsonResponse/jsonResponse';
+import { JsonResponseStatus } from '../../types';
 import { jsonResponse } from '../utils/jsonResponse';
 
 @Catch()

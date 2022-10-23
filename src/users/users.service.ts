@@ -1,10 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { UsersEntity } from './users.entity';
 import { jsonResponse } from '../utils/jsonResponse';
-import {
-  JsonResponse,
-  JsonResponseStatus,
-} from '../types/jsonResponse/jsonResponse';
+import { JsonResponse, JsonResponseStatus } from '../../types';
 import { EditUserDto } from './dto/editUser.dto';
 
 @Injectable()
