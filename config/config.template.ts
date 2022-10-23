@@ -7,4 +7,5 @@ export const config = {
     database: 'database',
   },
   salt: 'salt',
+  secretOrKey: 'secretOrKey',
 };

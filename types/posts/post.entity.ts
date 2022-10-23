@@ -1,9 +1,9 @@
-import { Users } from '../../src/users/users.entity';
+import { UsersEntity } from '../../src/users/users.entity';
 import { Likes } from '../../src/likes/likes.entity';
 
 export class PostEntityTypes {
   id: string;
-  userId: Users;
+  userId: UsersEntity;
   description: string;
   location: string;
   country: string;

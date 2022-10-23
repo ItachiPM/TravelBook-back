@@ -6,7 +6,7 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { PostEntityTypes } from '../../types';
-import { Users } from '../users/users.entity';
+import { UsersEntity } from '../users/users.entity';
 import { Likes } from '../likes/likes.entity';
 
 @Entity()
@@ -14,8 +14,8 @@ export class Posts extends PostEntityTypes {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @ManyToOne((type) => Users, (entity) => entity.posts)
-  userId: Users;
+  @ManyToOne((type) => UsersEntity, (entity) => entity.posts)
+  userId: UsersEntity;
 
   @Column({
     length: 20000,

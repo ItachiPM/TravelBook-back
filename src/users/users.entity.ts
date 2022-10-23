@@ -38,8 +38,10 @@ export class UsersEntity extends BaseEntity implements UserEntityTypes {
 
   @Column({
     length: 2000,
+    nullable: true,
+    default: true,
   })
-  description: string;
+  description: string | null;
 
   @Column()
   role: Role;

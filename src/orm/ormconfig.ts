@@ -11,5 +11,4 @@ export const PostgreDataSource = {
   database,
   entities: ['dist/**/**.entity{.ts,.js}'],
   synchronize: true,
-  logging: true,
 };

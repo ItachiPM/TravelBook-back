@@ -49,11 +49,24 @@ export class UsersService {
     await user.save();
 
     return jsonResponse({
-      code: 201,
+      code: 200,
       status: JsonResponseStatus.success,
       message: 'Users was successfully edited.',
       data: {
         user: user as UsersEntity,
+      },
+    });
+  }
+
+  async getAll(): Promise<JsonResponse> {
+    const users: UsersEntity[] = await UsersEntity.find();
+
+    return jsonResponse({
+      code: 200,
+      status: JsonResponseStatus.success,
+      message: 'Users was successfully found.',
+      data: {
+        users: users,
       },
     });
   }

@@ -22,7 +22,7 @@ export class GlobalErrorFilter implements ExceptionFilter {
     const message =
       exception instanceof HttpException
         ? exception.message
-        : 'Somethig went wrong. Please try after few minutes.';
+        : 'Something went wrong. Please try after few minutes.';
 
     response.status(code).json(
       jsonResponse({

@@ -10,16 +10,27 @@ import {
 } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { EditUserDto } from './dto/editUser.dto';
+import { JsonResponse } from '../types/jsonResponse/jsonResponse';
 
 @Controller('users')
 export class UsersController {
   constructor(@Inject(UsersService) private userService: UsersService) {}
 
+  @Get('/all')
+  @HttpCode(200)
+  async getAll(): Promise<JsonResponse> {
+    try {
+      return this.userService.getAll();
+    } catch (err) {
+      throw err;
+    }
+  }
+
   @Get('/:id')
   @HttpCode(200)
-  async getUser(@Param('id') id: string): Promise<void> {
+  async getUser(@Param('id') id: string): Promise<JsonResponse> {
     try {
-      await this.userService.getUser(id);
+      return this.userService.getUser(id);
     } catch (err) {
       throw err;
     }
@@ -36,7 +47,7 @@ export class UsersController {
   }
 
   @Patch()
-  @HttpCode(201)
+  @HttpCode(200)
   async editUser(@Body() editUser: EditUserDto) {
     try {
       return this.userService.editUser(editUser);
