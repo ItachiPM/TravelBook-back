@@ -59,7 +59,7 @@ export class AuthService {
         return res.status(400).json(
           jsonResponse({
             code: 400,
-            message: 'Invalid login data!',
+            message: 'Invalid auth data!',
             status: JsonResponseStatus.failed,
           }),
         );
@@ -77,7 +77,7 @@ export class AuthService {
         .json(
           jsonResponse({
             code: 200,
-            message: 'User was login successfully',
+            message: 'User was auth successfully',
             status: JsonResponseStatus.success,
             data: {
               user,

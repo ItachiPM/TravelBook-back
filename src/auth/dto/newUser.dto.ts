@@ -1,6 +1,7 @@
 import { IsEmail, IsString, MaxLength } from 'class-validator';
+import { Register } from '../../../types/auth/register';
 
-export class NewUserDto {
+export class RegisterDto implements Register {
   @IsEmail()
   @IsString()
   email: string;
